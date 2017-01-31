@@ -9,7 +9,7 @@ import java.util.List;
 @Builder
 @Getter
 @Entity
-public class User {
+public class PbUser {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
