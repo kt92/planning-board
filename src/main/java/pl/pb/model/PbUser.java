@@ -20,6 +20,8 @@ public class PbUser {
 
     private String password;
 
+    private RoleType role;
+
     @OneToMany
     private List<Project> projects;
 }

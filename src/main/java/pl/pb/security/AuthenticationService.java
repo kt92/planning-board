@@ -30,13 +30,12 @@ public class AuthenticationService implements UserDetailsService {
             throw new UsernameNotFoundException(String.format("No user with login: %s exists!", username));
         }
 
-        GrantedAuthority adminAuthority = new SimpleGrantedAuthority("ADMIN");
-        GrantedAuthority userAuthority = new SimpleGrantedAuthority("USER");
+        GrantedAuthority authority = new SimpleGrantedAuthority(userInfo.getRole().name());
 
         return new User(
                 userInfo.getLogin(),
                 userInfo.getPassword(),
-                asList(adminAuthority, userAuthority)
+                asList(authority)
         );
     }
 }

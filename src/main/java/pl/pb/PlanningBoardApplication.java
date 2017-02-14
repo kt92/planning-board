@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import pl.pb.model.PbUser;
+import pl.pb.model.RoleType;
 import pl.pb.users.UsersRepository;
 
 import static java.util.Arrays.asList;
@@ -24,10 +25,12 @@ public class PlanningBoardApplication implements CommandLineRunner {
         PbUser user1 = PbUser.builder()
                 .login("user")
                 .password("user")
+                .role(RoleType.USER)
                 .build();
         PbUser user2 = PbUser.builder()
                 .login("admin")
                 .password("admin")
+                .role(RoleType.ADMIN)
                 .build();
         usersRepository.save(asList(user1, user2));
     }
