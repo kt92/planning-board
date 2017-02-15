@@ -1,0 +1,53 @@
+<div layout="row">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="templateCtrl.toggleMenu('leftMenu')" aria-label="Toggle menu">
+                <md-icon md-font-set="md">menu</md-icon>
+            </md-button>
+            <md-button class="md-icon-button" ui-sref="tasks" aria-label="Home">
+                <md-icon md-font-set="md">home</md-icon>
+            </md-button>
+            <h2>
+                <span>Planning Board</span>
+            </h2>
+            <span flex></span>
+            <span>{{templateCtrl.loggedUserName}}</span>
+            <md-menu md-offset="0 60">
+                <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                    <md-icon md-menu-origin md-font-set="md">more_vert</md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ng-href="logout"><span>Logout</span></md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+    </md-toolbar>
+</div>
+<div layout="row">
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="leftMenu">
+        <md-toolbar class="md-theme-indigo">
+            <h1 class="md-toolbar-tools">
+                Menu
+                <span flex></span>
+                <md-button aria-label="Close" ng-click="templateCtrl.toggleMenu('leftMenu')">
+                    Close
+                </md-button>
+            </h1>
+        </md-toolbar>
+        <md-content>
+            <md-list>
+                <md-list-item class="md-2-line">
+                    <div class="md-list-item-text" layout="column">
+                        <md-button ui-sref="tasks" ng-click="templateCtrl.toggleMenu('leftMenu')">Tasks</md-button>
+                        <md-button ui-sref="users" ng-click="templateCtrl.toggleMenu('leftMenu')">Users</md-button>
+                        <md-button ui-sref="projects"  ng-click="templateCtrl.toggleMenu('leftMenu')">Projects</md-button>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </md-sidenav>
+
+    <div ui-view flex></div>
+</div>
